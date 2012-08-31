@@ -2,7 +2,7 @@
 
 class DivisionsController extends AppController{
     
-    public $uses = array('Divisiont');
+    public $uses = array('Division');
     
     function index(){
         $division = $this->Division->find('all');
