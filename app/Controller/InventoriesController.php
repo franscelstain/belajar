@@ -2,33 +2,33 @@
 
 class InventoriesController extends AppController{
     
-    public $uses = array('Inventories');
+    public $uses = array('Inventory');
     
     function index(){
-        $inventories = $this->Inventories->find('all');
-        $this->set('inventories', $inventories);
+        $inventory = $this->Inventory->find('all');
+        $this->set('inventory', $inventory);
     }
     public function add() {
 	if (!empty($this->data)) {
-            $this->Inventories->create();
-            if ($this->Inventories->save($this->data)) {
-                $this->Session->setFlash('Your post has been saved.');
+            $this->Inventory->create();
+            if ($this->Inventory->save($this->data)) {
+                $this->Session->setFlash('Your inventory has been saved.');
 		$this->redirect(array('action' => 'index'));
 	    }else {
-		$this->Session->setFlash('Unable to add your post.');
+		$this->Session->setFlash('Unable to add your inventory.');
 	    }
 	}
     }
     public function edit($id = null) {
-        $this->Inventories->id = $id;
+        $this->Inventory->id = $id;
         if ($this->request->is('get')) {
-            $this->request->data = $this->Inventories->read();
+            $this->request->data = $this->Inventory->read();
         } else {
-            if ($this->Inventories->save($this->request->data)) {
-                $this->Session->setFlash('Your post has been updated.');
+            if ($this->Inventory->save($this->request->data)) {
+                $this->Session->setFlash('Your inventory has been updated.');
                 $this->redirect(array('action' => 'index'));
             }else {
-                $this->Session->setFlash('Unable to update your post.');
+                $this->Session->setFlash('Unable to update your inventory.');
             }
         }
     }
@@ -36,8 +36,8 @@ class InventoriesController extends AppController{
         if ($this->request->is('get')) {
             throw new MethodNotAllowedException();
         }
-        if ($this->Inventories->delete($id)) {
-            $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
+        if ($this->Inventory->delete($id)) {
+            $this->Session->setFlash('Your inventory has been deleted.');
             $this->redirect(array('action' => 'index'));
         }
     }

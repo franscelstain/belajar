@@ -15,10 +15,10 @@ class PeoplesController extends AppController{
 	if (!empty($this->data)) {
             $this->People->create();
             if ($this->People->save($this->data)) {
-                $this->Session->setFlash('Your post has been saved.');
+                $this->Session->setFlash('Your people has been saved.');
 		$this->redirect(array('action' => 'index'));
 	    }else {
-		$this->Session->setFlash('Unable to add your post.');
+		$this->Session->setFlash('Unable to add your people.');
 	    }
 	}
     }
@@ -30,10 +30,10 @@ class PeoplesController extends AppController{
             $this->set('divisions', $divisions);
         } else {
             if ($this->People->save($this->request->data)) {
-                $this->Session->setFlash('Your post has been updated.');
+                $this->Session->setFlash('Your people has been updated.');
                 $this->redirect(array('action' => 'index'));
             }else {
-                $this->Session->setFlash('Unable to update your post.');
+                $this->Session->setFlash('Unable to update your people.');
             }
         }
     }
@@ -42,7 +42,7 @@ class PeoplesController extends AppController{
             throw new MethodNotAllowedException();
         }
         if ($this->People->delete($id)) {
-            $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
+            $this->Session->setFlash('Your people has been deleted.');
             $this->redirect(array('action' => 'index'));
         }
     }

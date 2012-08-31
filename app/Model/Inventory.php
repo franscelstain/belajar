@@ -1,6 +1,6 @@
 <?php
 
-class Inventories extends AppModel
+class Inventory extends AppModel
 {
 	public $useTable = 'Inventories';
 	public $primayKey = 'id';

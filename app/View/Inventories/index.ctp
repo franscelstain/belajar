@@ -16,18 +16,18 @@
     <tbody>
         <?php
 	    $i=1;
-	    foreach ($inventories as $a):
+	    foreach ($inventory as $a):
          ?>
 	    
             <tr>
                 <td><?php echo $i; ?></td>
-		<td><?php echo $a['Inventories']['name'] ?></td>
-                <td><?php echo $a['Inventories']['vendor_sn'] ?></td>
-		<td><?php echo $this->Html->link("Edit", array('action' => 'edit', $a['Inventories']['id'])); ?>
+		<td><?php echo $a['Inventory']['name'] ?></td>
+                <td><?php echo $a['Inventory']['vendor_sn'] ?></td>
+		<td><?php echo $this->Html->link("Edit", array('action' => 'edit', $a['Inventory']['id'])); ?>
 			<?php
 			      echo $this->Form->postLink(
 				    'Delete',
-				    array('action' => 'delete', $a['Inventories']['id']),
+				    array('action' => 'delete', $a['Inventory']['id']),
 				    array('confirm' => 'Are you sure?'));
 			?>
 	        </td>
